@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpeakerHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="matrix-rain">
+</div>
+
+<header>
+    <div class="logo">Speaker<span>Hub</span></div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search speakers, brands...">
+<button onclick="searchProduct()">Search</button>
+
+    </div>
+
+    <div class="nav-buttons">
+    <button onclick="window.location.href='login.html'">
+        Login
+    </button>
+
+    <button class="register" onclick="window.location.href='register.html'">
+        Register
+    </button>
+    
+    </div>
+
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Experience Premium Sound Like Never Before</h1>
+        <p>
+            Discover Bluetooth speakers, home theater systems,
+            studio monitors, portable speakers, and more.
+        </p>
+
+<button class="primary" onclick="document.querySelector('.products').scrollIntoView()">
+    Shop Best Sellers
+    </button>
+
+    <button onclick="document.querySelector('.categories').scrollIntoView()">
+    Browse Categories
+    </button>
+    
+    </div>
+
+    <div class="hero-image">
+        <img src="images/speaker.jpg" alt="Speaker">
+    </div>
+</section>
+
+<section class="categories">
+    <h2>Categories</h2>
+
+    <div class="category-grid">
+
+        <div class="card">
+            <img src="images/Portable.jpg" alt="Portable Speaker">
+            <h3>Bluetooth Speakers</h3>
+            <p>Portable wireless sound systems.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/home-theater.jpg" alt="Home Theater">
+            <h3>Home Theater</h3>
+            <p>Immersive cinematic audio.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/Studio.jpg" alt="Studio Monitors">
+            <h3>Studio Monitors</h3>
+            <p>Professional sound monitoring.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/Party.jpg" alt="Party Speakers"> 
+            <h3>Party Speakers</h3>
+           <p>Powerful bass and loud output.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="products">
+
+    <h2>Browse Our Speaker Collection</h2>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+            <img src="images/6514475_sd.avif" alt="The JBL Xtreme 4">
+            <h3>JBL  Xtreme 4 Portable Bluetooth Speaker  Black</h3>
+            <p>Its time to live loud! The JBL Xtreme 4 portable waterproof speaker</p>
+            <h4>₱10,999</h4>
+
+            <button onclick="buyNow('JBL Xtreme 4', 10999)">
+                Buy Now
+            </button>
+
+            <button onclick="addToCart('JBL Xtreme 4', 10999)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/Sony SRS.jpg" alt="Sony Speaker">
+            <h3>Sony SRS-XG500</h3>
+            <p>Portable Bluetooth speaker.</p>
+            <h4>₱4,999</h4>
+
+            <button onclick="buyNow('Sony SRS-XG500', 4999)">
+                Buy Now
+            </button>
+
+            <button onclick="addToCart('Sony SRS-XG500', 4999)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/Bose Smart.avif" alt="Bose Speaker">
+            <h3>Bose Smart Speaker</h3>
+            <p>BOSE HOME SPEAKER 500 BLACK</p>
+            <h4>₱3,229.99</h4>
+
+            <button onclick="buyNow('Bose Smart Speaker', 3229.99)">
+                Buy Now
+            </button>
+
+            <button onclick="addToCart('Bose Smart Speaker', 3229.99)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/krk10s.jpg" alt="KRK Speaker">
+            <h3>KRK Rokit 5</h3>
+            <p>Professional studio monitor speaker.</p>
+            <h4>₱2,999</h4>
+
+            <button onclick="buyNow('KRK Rokit 5', 2999)">
+                Buy Now
+            </button>
+            
+            <button onclick="addToCart('KRK Rokit 5', 2999)">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+
+</section>
+<div class="profile">
+    <h2>User Profile</h2>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Enter Name">
+
+    <button onclick="saveProfile()">
+        Save
+    </button>
+</div>
+
+<section class="cart">
+    <h2>Shopping Cart</h2>
+
+    <ul id="cart-items"></ul>
+
+    <p>Total: ₱<span id="total">0</span></p>
+</section>
+
+<h3>Mode of Payment</h3>
+
+<select id="payment">
+    <option>GCash</option>
+    <option>Maya</option>
+    <option>Cash on Delivery</option>
+    <option>Bank Transfer</option>
+</select>
+
+<br><br>
+
+<button onclick="checkout()">Checkout</button>
+
+<section class="newsletter">
+    <h2>Join the SpeakerHub Mailing List</h2>
+
+    <input type="email" id="email" placeholder="Enter your email">
+<button onclick="subscribe()">Subscribe</button>
+</section>
+
+<footer>
+    <div>
+        <h3>SpeakerHub</h3>
+        <p>Premium speaker marketplace.</p>
+    </div>
+
+    <div>
+        <h3>Customer Service</h3>
+        <p>Help Center</p>
+        <p>Shipping</p>
+        <p>Returns</p>
+    </div>
+
+    <div>
+        <h3>Contact</h3>
+        <p>support@speakerhub.com</p>
+        <p>+1 800 123 4567</p>
+    </div>
+</footer>
+
+<canvas id="matrix"></canvas>
+<script src="script.js"></script>
+</body>
+</html>
