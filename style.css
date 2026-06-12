@@ -1,0 +1,311 @@
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/ Matrix Background /
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+    repeating-linear-gradient(
+        90deg,
+        rgba(0,255,255,0.05) 0px,
+        rgba(0,255,255,0.05) 1px,
+        transparent 1px,
+        transparent 50px
+    ),
+    repeating-linear-gradient(
+        180deg,
+        rgba(0,255,255,0.03) 0px,
+        rgba(0,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 50px
+    );
+    animation:gridMove 15s linear infinite;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top,#00ffff22,transparent 60%),
+    radial-gradient(circle at bottom,#0088ff22,transparent 60%);
+    z-index:-1;
+}
+
+@keyframes gridMove{
+    from{transform:translateY(0);}
+    to{transform:translateY(50px);}
+}
+
+/ Header /
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #00ffff;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#00ffff;
+    text-shadow:0 0 10px #00ffff,0 0 20px #00ffff;
+}
+
+/ Search /
+.search-box input{
+    padding:12px;
+    width:260px;
+    background:#0f172a;
+    color:white;
+    border:1px solid #00ffff;
+    border-radius:6px;
+}
+
+.search-box button{
+    padding:12px 20px;
+}
+
+/ Buttons /
+button{
+    background:#00ffff;
+    color:black;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 10px #00ffff,0 0 20px #00ffff,0 0 40px #00ffff;
+}
+
+/ Hero /
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 60px;
+}
+
+.hero-text{
+    width:50%;
+}
+
+.hero-text h1{
+    font-size:52px;
+    margin-bottom:20px;
+    text-shadow:0 0 15px #00ffff;
+}
+
+.hero-text p{
+    margin-bottom:25px;
+}
+
+.hero-image img{
+    width:500px;
+    border-radius:20px;
+    border:2px solid #00ffff;
+    box-shadow:0 0 20px #00ffff;
+}
+
+/ Sections /
+.categories,
+.products,
+.cart,
+.profile{
+    padding:60px;
+}
+
+/ Cards /
+.category-grid,
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card,
+.product-card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    transition:.4s;
+    position:relative;
+}
+
+.card::before,
+.product-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    padding:2px;
+    background:linear-gradient(
+        45deg,
+        #00ffff,
+        #0088ff,
+        #00ffff
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    pointer-events:none;
+}
+
+
+.card:hover,
+.product-card:hover{
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 30px #00ffff,
+        0 0 50px rgba(0,255,255,.6);
+}
+
+.card img,
+.product-card img{
+    width:100%;
+    max-width:220px;
+    height:180px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto;
+
+    border-radius:15px;
+    border:2px solid #00ffff;
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 20px rgba(0,255,255,.5);
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #111827,
+        #0f172a
+    );
+
+    padding:10px;
+}
+
+.product-card{
+    background: rgba(255,255,255,.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,255,255,.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+}
+
+/ Inputs /
+input,
+select{
+    background:#0f172a;
+    color:white;
+    border:1px solid #00ffff;
+    padding:12px;
+    border-radius:6px;
+}
+
+/ Newsletter /
+.newsletter{
+    text-align:center;
+    padding:60px;
+    background:rgba(0,0,0,.8);
+    border-top:1px solid #00ffff;
+    border-bottom:1px solid #00ffff;
+}
+
+/ Footer /
+footer{
+    display:flex;
+    justify-content:space-around;
+    padding:50px;
+    background:#050816;
+    border-top:1px solid #00ffff;
+}
+
+footer h3{
+    color:#00ffff;
+}
+
+/ Matrix Rain Layer /
+.matrix-rain{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 95px,
+        rgba(0,255,0,.08) 100px
+    );
+    animation:rain 5s linear infinite;
+    z-index:-1;
+}
+
+@keyframes rain{
+    from{background-position:0 0;}
+    to{background-position:0 1000px;}
+}
+
+/ Matrix Canvas /
+#matrix{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-5;
+    opacity:.35;
+    pointer-events:none;
+}
+
+/ Scrollbar */
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#00ffff;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
